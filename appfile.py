@@ -31,7 +31,7 @@ class class_testdata(BaseModel):
 # index route, opens automatically on
 @app.get('/')
 def root():
-    return {'message': 'Welcome! \nThis is an fastapi application. You can make prdiction on the client credit default probability by entering values in listed features!'}
+    return {'message': 'Welcome! This is an fastapi application. You can make prdiction on the client credit default probability by entering values in listed features!'}
 
 
 # make prediction functionality\n",
