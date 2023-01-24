@@ -25,17 +25,17 @@ class class_testdata(BaseModel):
     #    prediction: float        
     # app object creation
 app = FastAPI()
-pickle_in = open('..\\common_files\\mlflow_model\\model.pkl', 'rb') # load threshold model for probability prediction\n",
+pickle_in = open('common_files\\mlflow_model\\model.pkl', 'rb') # load threshold model for probability prediction\n",
 classifier = pickle.load(pickle_in)
 # index route, opens automatically on
 @app.get('/')
 def index():
     return {'message': 'Welcome!'}
 
-# route with a single parameter
-@app.get('/{number}')
-def get_name(name: int):
-    return {'Welcome to page': {number}}
+## route with a single parameter
+#@app.get('/{number}')
+#def get_name(name: int):
+#    return {'Welcome to page': {number}}
 
 # make prediction functionality\n",
 #@app.post('/predict', response_model=class_item) # the API's name
