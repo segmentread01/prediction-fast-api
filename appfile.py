@@ -1,7 +1,6 @@
 
 import pickle
 from fastapi import FastAPI
-import starlette.responses as responses
 import uvicorn
 import gunicorn
 from pydantic import BaseModel
@@ -31,8 +30,9 @@ class class_testdata(BaseModel):
 
 # index route, opens automatically on
 @app.get('/')
-async def root():
-    return responses.RedirectResponse("/redoc")
+def root():
+    return {'message': 'Welcome! \nThis is an fastapi application. You can make prdiction on the client credit default probability by entering values in listed features!'}
+
 
 # make prediction functionality\n",
 #@app.post('/predict', response_model=class_item) # the API's name
@@ -54,5 +54,3 @@ async def client_predict(data: class_testdata):
     prediction_default = prediction[0][0]
    
     return prediction_default
-#if __name__ == '__main__':
-#    uvicorn.run(app, host='127.0.0.1', port= 8000)
