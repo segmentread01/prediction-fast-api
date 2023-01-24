@@ -4,6 +4,7 @@ from fastapi import FastAPI
 import uvicorn
 import gunicorn
 from pydantic import BaseModel
+from lightgbm import LGBMClassifier
 from sklego.meta import Thresholder
 
 # define class which describes test data measurements
