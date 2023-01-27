@@ -36,7 +36,7 @@ def root():
 
 # make prediction functionality\n",
 #@app.post('/predict', response_model=class_item) # the API's name
-@app.get('/predict')
+@app.post('/predict')
 async def client_predict(data: class_testdata):
     data = data.dict()
     IdClient= data['IdClient']
