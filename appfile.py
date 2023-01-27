@@ -8,9 +8,7 @@ from lightgbm import LGBMClassifier
 from sklego.meta import Thresholder
 
 
-app = FastAPI()
-pickle_in = open('mlflow_model/model.pkl', 'rb') # load threshold model for probability prediction\n",
-classifier = pickle.load(pickle_in)
+
 
 # define class which describes test data measurements
 class class_testdata(BaseModel):
@@ -28,7 +26,9 @@ class class_testdata(BaseModel):
 #    prediction: float        
 # app object creation
 
-# index route, opens automatically on
+app = FastAPI()
+pickle_in = open('mlflow_model/model.pkl', 'rb') # load threshold model for probability prediction\n",
+classifier = pickle.load(pickle_in)
 @app.get('/')
 def root():
     return {'message': 'Welcome! This is an fastapi application. You can make prdiction on the client credit default probability by entering values in listed features!'}
@@ -36,7 +36,7 @@ def root():
 
 # make prediction functionality\n",
 #@app.post('/predict', response_model=class_item) # the API's name
-@app.post('/predict')
+@app.get('/predict')
 async def client_predict(data: class_testdata):
     data = data.dict()
     IdClient= data['IdClient']
